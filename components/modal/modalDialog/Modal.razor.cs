@@ -326,12 +326,12 @@ namespace AntDesign
 
         public override async Task SetParametersAsync(ParameterView parameters)
         {
+            await base.SetParametersAsync(parameters);
+            
             var visibleChanged = parameters.IsParameterChanged(nameof(Visible), Visible, out var newVisible);
 
             parameters.SetParameterProperties(this);
             
-            await base.SetParametersAsync(parameters);
-
             if (_modalRef == null)
             {
                 var options = BuildDialogOptions();
